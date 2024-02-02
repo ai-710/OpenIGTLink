@@ -1,6 +1,6 @@
-PROJECT(OpenIGTLink)
-
 CMAKE_MINIMUM_REQUIRED(VERSION 3.1)
+
+PROJECT(OpenIGTLink)
 
 INCLUDE(ExternalProject)
 
@@ -312,3 +312,10 @@ ENDIF()
 IF(OpenIGTLink_BUILD_DOCUMENTATION)
   ADD_SUBDIRECTORY(Documents/Doxygen)
 ENDIF()
+
+#-----------------------------------------------------------------------------
+# Wrapping
+option(OpenIGTLink_BUILD_CSHARP_WRAPPER "Build CSharp wrapper" OFF)
+if(OpenIGTLink_BUILD_CSHARP_WRAPPER)
+  add_subdirectory(Wrapping/CSharp)
+endif()
